@@ -19,8 +19,10 @@ export CRONICLE_foreground=1
 if [ ! -f $DATA_DIR/.setup_done ]
 then
 
-  if [ "$1" != "slave" ]
+  if [ "$1" == "slave" ]
   then
+    sed 's/CHANGE_ME/$CRONICLE_secret_key/g' $DATA_DIR/config.json.import
+  else
     $BIN_DIR/control.sh setup
 
     cp $CONF_DIR/config.json $CONF_DIR/config.json.origin
