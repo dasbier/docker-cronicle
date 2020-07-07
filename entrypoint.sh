@@ -18,9 +18,13 @@ export CRONICLE_foreground=1
 # Only run setup when setup needs to be done
 if [ ! -f $DATA_DIR/.setup_done ]
 then
-  $BIN_DIR/control.sh setup
 
-  cp $CONF_DIR/config.json $CONF_DIR/config.json.origin
+  if [ "$1" != "slave" ]
+  then
+    $BIN_DIR/control.sh setup
+
+    cp $CONF_DIR/config.json $CONF_DIR/config.json.origin
+  fi
 
   if [ -f $DATA_DIR/config.json.import ]
   then

@@ -3,12 +3,10 @@
 
 Docker container for a Cronicle single-server master node
 
-This image fixes a known issue with the intelliops/belsander image: https://github.com/belsander/docker-cronicle/issues/19
-
 # Supported tags
 
-* `latest`, `0.8.45`, [Dockerfile](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile)
-* `latest-s3` , `0.8.45-s3`,[Dockerfile.s3](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile.s3)
+* `latest`, `0.8.46`, [Dockerfile](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile)
+* `latest-s3` , `0.8.46-s3`,[Dockerfile.s3](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile.s3)
 
 * `0.8.28` [Dockerfile](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile)
 * `0.8.28-s3` [Dockerfile.s3](https://raw.githubusercontent.com/belsander/docker-cronicle/master/Dockerfile.s3)
@@ -24,12 +22,12 @@ there is no need for S3, again, just go for `latest`.
 
 ## Install
 ```sh
-docker pull nicholasamorim/cronicle:latest
+docker pull dasbier/cronicle:latest
 ```
 
 ## Running
 ```sh
-docker run --name cronicle --hostname localhost -p 3012:3012 nicholasamorim/cronicle:latest
+docker run --name cronicle --hostname localhost -p 3012:3012 dasbier/cronicle:latest
 ```
 
 Alternatively with persistent data and logs:
@@ -37,7 +35,7 @@ Alternatively with persistent data and logs:
 docker run --name cronicle \
   -v /path-to-cronicle-storage/data:/opt/cronicle/data:rw \
   -v /path-to-cronicle-storage/logs:/opt/cronicle/logs:rw \
-  --hostname localhost -p 3012:3012 nicholasamorim/cronicle:latest
+  --hostname localhost -p 3012:3012 dasbier/cronicle:latest
 ```
 
 The web UI will be available at: http://localhost:3012
